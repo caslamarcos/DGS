@@ -1,0 +1,68 @@
+.section {
+  padding: 120px 60px;
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.title em { color: var(--gold); font-style: italic; }
+
+.note {
+  font-size: 0.8rem;
+  line-height: 1.9;
+  color: var(--subtle);
+  font-weight: 300;
+}
+
+.right { display: flex; flex-direction: column; gap: 20px; }
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 32px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.btn:hover { border-color: var(--gold-dim); background: var(--deep); }
+
+.btnDisabled { border-style: dashed; pointer-events: none; opacity: 0.4; }
+
+.btnIcon { font-size: 1.3rem; }
+.btnText { flex: 1; }
+
+.btnLabel {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 4px;
+  font-family: var(--font-sans);
+}
+
+.btnValue {
+  font-size: 0.9rem;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+}
+
+.btnArrow { color: var(--gold-dim); font-size: 0.8rem; }
+
+@media (max-width: 768px) {
+  .section { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+}

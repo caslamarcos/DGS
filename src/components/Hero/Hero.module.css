@@ -1,0 +1,161 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.accentLine {
+  position: absolute;
+  left: 60px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-dim) 30%, var(--gold-dim) 70%, transparent);
+  opacity: 0.5;
+}
+
+.tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+  margin-left: 24px;
+  padding-top: 120px;
+  opacity: 0;
+  animation: fadeUp 1s 0.3s forwards;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  font-weight: 300;
+  line-height: 0.95;
+  color: var(--white);
+  margin-left: 24px;
+  opacity: 0;
+  animation: fadeUp 1s 0.5s forwards;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.subtitle {
+  margin-left: 24px;
+  margin-top: 36px;
+  max-width: 480px;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--subtle);
+  letter-spacing: 0.06em;
+  opacity: 0;
+  animation: fadeUp 1s 0.75s forwards;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-left: 24px;
+  margin-top: 52px;
+  opacity: 0;
+  animation: fadeUp 1s 1s forwards;
+}
+
+.btnPrimary {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  padding: 14px 36px;
+  transition: opacity 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.btnPrimary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.btnGhost {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 2px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.btnGhost:hover { color: var(--light); border-color: var(--light); }
+
+.badge {
+  position: absolute;
+  right: 80px; bottom: 100px;
+  width: 110px; height: 110px;
+  opacity: 0;
+  animation: fadeIn 1s 1.4s forwards;
+}
+
+.badgeSvg { animation: spin 20s linear infinite; }
+
+.badgeCenter {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.badgeCenter span {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 40px; left: 60px;
+  display: none;
+}
+
+.scrollHint::before {
+  content: "";
+  display: block; width: 40px; height: 1px;
+  background: var(--muted);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 0 24px; }
+  .badge { display: none; }
+  .accentLine { left: 24px; }
+  .scrollHint { left: 24px; }
+}
