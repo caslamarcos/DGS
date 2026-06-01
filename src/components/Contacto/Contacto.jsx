@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react"
 import styles from "./Contacto.module.css"
 
-const WHATSAPP = "5491100000000"
-const EMAIL = "consultas@dgs.ar"
+const WHATSAPP = "+5491166041155"
+const EMAIL = "dgs.consultas@gmail.com"
 
 export default function Contacto() {
   const ref = useRef(null)
@@ -41,7 +41,8 @@ export default function Contacto() {
           <span className={styles.btnIcon}>💬</span>
           <div className={styles.btnText}>
             <div className={styles.btnLabel}>WhatsApp Business</div>
-            <div className={styles.btnValue}>+54 9 11 0000‑0000</div>
+            <div className={styles.btnValue}>+54 9 11 6604-1155</div>
+            <div className={styles.btnValue}>+54 9 11 3114-8656</div>
           </div>
           <span className={styles.btnArrow}>↗</span>
         </a>
